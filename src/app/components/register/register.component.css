@@ -1,0 +1,45 @@
+.container{
+    height:500px;
+}
+.form-group{
+    margin: 40px 0;
+}
+
+input[type="text"],input[type="password"]
+{
+    background: transparent;
+    
+}
+.form-control:focus {
+    border-color: #ff80ff;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 100, 255, 0.5);
+}
+button > img{
+    height :80%;
+    width:25px;
+}
+.btn-login{
+    position: relative;
+    font-weight: bolder;
+    font-size: 15px;
+    transition: 200ms;
+    
+}
+
+#google{
+    border:2px solid black;
+}
+#facebook{
+    background-color: #4267B2;
+    color: #fff;
+}
+#facebook:hover{
+    background:#4267B280 ;
+}
+#google >img,#facebook > img{
+    position: absolute;
+    left:20px;
+    top:10%;
+}
+
+

@@ -10,12 +10,14 @@ import { MaterialModule } from './material.module';
 import { CustomerComponent } from './components/customer/customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    CustomerComponent
+    CustomerComponent,
+   
   ],
   imports: [
     BrowserModule,

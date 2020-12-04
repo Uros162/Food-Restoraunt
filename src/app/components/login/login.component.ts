@@ -9,7 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   forma:FormGroup;
+  fieldTextType:Boolean;
   constructor(private fb: FormBuilder) { }
+  
 
   ngOnInit(): void {
     this.forma = this.fb.group({
@@ -25,6 +27,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
 
+  }
+
+  toggleTieldTextType(){
+    this.fieldTextType = !this.fieldTextType;
   }
 
 }
