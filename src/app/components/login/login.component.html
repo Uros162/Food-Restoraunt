@@ -1,9 +1,13 @@
-<section class="container text-left col-lg-3 .col-sm-12  " style="border:2px solid black">
+<section class="container-fluid text-left   " >
     <form [formGroup]="forma" (ngSubmit)="onSubmit">
 
         <div class="form-group">
-            <button class="btn btn-lg  btn-light btn-block px-2 mb-2 btn-login" id="google"><img src="../../../assets/images/google-icon.svg" alt="google login" srcset=""> <span>Prijavite se</span></button>
-            <button class="btn btn-lg   btn-block px-2 mb-2 btn-login" id="facebook"><img src="../../../assets/images/facebook-3-2.svg" alt="google login" srcset=""> <span>Prijavite se</span></button>
+            <button class="btn btn-lg  btn-light btn-block px-2 mb-2 btn-login " id="google"><img
+                    src="../../../assets/images/google-icon.svg" alt="google login" srcset=""> <span>Prijavite
+                    se</span></button>
+            <button class="btn btn-lg   btn-block px-2 mb-2 btn-login" id="facebook"><img
+                    src="../../../assets/images/facebook-3-2.svg" alt="facebook login" srcset=""> <span>Prijavite
+                    se</span></button>
         </div>
         <div class="form-group">
             <input type="text" formControlName="username" class="form-control" id="username"

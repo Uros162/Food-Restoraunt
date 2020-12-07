@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { CustomerComponent } from './components/customer/customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     CustomerComponent,
+    AuthenticationComponent,
    
   ],
   imports: [

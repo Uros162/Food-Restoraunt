@@ -10,9 +10,11 @@
   <mat-sidenav-content>
     <mat-toolbar color="#F01616"><div (click) = "sidenav.toggle()"><mat-icon>menu</mat-icon></div>
      <div fxFlex fxLayoutAlign="end"  fxHide.xs>
-       <button type="button" class="btn   btn-lg" id="auth">prijavi se/registruj se</button>
+       <button type="button" class="btn   btn-lg" id="auth" (click) = "toogleLogin(true)">prijavi se/registruj se</button>
      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
+    <app-authentication *ngIf = "login" (colsinfLogin) = 'toogleLogin($event)'></app-authentication>
   </mat-sidenav-content>
+  
 </mat-sidenav-container>
