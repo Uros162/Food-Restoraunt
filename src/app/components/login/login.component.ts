@@ -1,5 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { Customer } from 'src/app/models/customer';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   forma:FormGroup;
   fieldTextType:Boolean;
-  constructor(private fb: FormBuilder) { }
+  errorText:string;
+  errorExists:boolean;
+  constructor(private fb: FormBuilder,private authService:AuthenticationService,private router:Router) { }
   
 
   ngOnInit(): void {
@@ -23,11 +27,27 @@ export class LoginComponent implements OnInit {
   }
 
   get f(){
+    
     return this.forma.controls;
   }
 
   onSubmit(){
+    var username = this.forma.get('username').value;
+    var password = this.forma.get('password').value;
 
+    var user = this.authService.login(username,password);
+
+    if(!user){
+      this.errorExists = true;
+      this.errorText ="Passwor or Username ar incorrect";
+      console.log(this.errorText);
+      return;
+    }
+    console.log(user)
+    this.errorExists = false;
+    this.router.navigate(['/']);
+
+    
   }
 
   toggleTieldTextType(){

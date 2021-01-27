@@ -8,9 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend';
 
-  login:Boolean;
-
-  toogleLogin(value:boolean){
-    this.login = value;
-  }
+  
 }

@@ -10,19 +10,14 @@
                     se</span></button>
         </div>
         <div class="form-group">
-            <input type="email" formControlName="email" class="form-control" id="email"
+            <input type="email" formControlName="username" class="form-control" id="username"
                 placeholder="enter your  e-mail">
-            <small *ngIf="forma.get('email').hasError('required')" class="form-text text-danger">ovo polje je
-                obavezno</small>
-            <small *ngIf="forma.get('email').hasError('email')" class="form-text text-danger">email nije
-                ispravan</small>
-        </div>
-        <div class="form-group">
-            <input type="text" formControlName="username" class="form-control" id="username"
-                placeholder="enter your username">
             <small *ngIf="forma.get('username').hasError('required')" class="form-text text-danger">ovo polje je
                 obavezno</small>
+            <small *ngIf="forma.get('username').hasError('email')" class="form-text text-danger">username nije
+                ispravan</small>
         </div>
+       
 
         <div class="form-group">
             <div class="input-group">

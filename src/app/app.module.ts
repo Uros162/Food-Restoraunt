@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { CustomerComponent } from './components/customer/customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     RegisterComponent,
     CustomerComponent,
     AuthenticationComponent,
+    HeaderComponent,
    
   ],
   imports: [

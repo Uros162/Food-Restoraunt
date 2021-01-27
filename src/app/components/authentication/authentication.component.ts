@@ -13,8 +13,6 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  closeLogin(){
-    this.colsinfLogin.emit(false);
-  }
+ 
 
 }

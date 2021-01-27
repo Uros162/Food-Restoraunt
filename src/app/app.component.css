@@ -1,22 +1,4 @@
-mat-sidenav-container,mat-sidenav,mat-sidenav-content{
-    height: 100%;
-}
-mat-sidenav{
-    width:20vw;
-}
 
-mat-toolbar{
-    background:#F01616 ;
-} 
-
-#auth{
-   font-weight: bold;
-   background-color:transparent;
-   transition: 200ms;
-   border: 3px solid #F0E616;
+app-header{
+    height:100vh;
 }
-#auth:hover{
-    background-color:#F0E616;
-    
-}
-
