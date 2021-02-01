@@ -1,0 +1,13 @@
+section >div{
+    border: 2px solid blue;
+}
+
+.card{
+    width:100%;
+}
+
+img{
+    background-size: cover;
+    width:40%;
+    height:100%;
+}

@@ -1,5 +1,5 @@
 <section class="container-fluid text-left   " >
-    <form [formGroup]="forma" (ngSubmit)="onSubmit">
+    <form [formGroup]="forma" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
             <button class="btn btn-lg  btn-light btn-block px-2 mb-2 btn-login " id="google"><img
@@ -68,5 +68,6 @@
             <button type="submit" [disabled]="forma.invalid" class="btn btn-lg btn-warning btn-block">Prijavite
                 se</button>
         </div>
+        <small *ngIf="this.errorExists">{{this.errorText}}</small>
     </form>
 </section>

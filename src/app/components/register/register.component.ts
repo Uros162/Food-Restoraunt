@@ -1,3 +1,6 @@
+import { Router } from '@angular/router';
+
+import { AuthenticationService } from './../../services/authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MastMatch } from '../helpers/mast-match.validators';
@@ -12,7 +15,10 @@ export class RegisterComponent implements OnInit {
   
   forma:FormGroup;
   fieldTextType:Boolean;
-  constructor(private fb: FormBuilder) { }
+  errorExists:boolean;
+  errorText:string;
+
+  constructor(private fb: FormBuilder,private authService :AuthenticationService,private router:Router) { }
   
 
   ngOnInit(): void {
@@ -31,7 +37,24 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
+    var username = this.forma.get('username').value;
+    var password = this.forma.get('password').value;
 
+    if(!this.authService.getUser(username)){
+      this.errorExists = false;
+      var user = this.authService.registerUser(username,password);
+      this.router.navigate(['/']);
+      console.log(AuthenticationService.dumyList);
+    }else{
+      this.errorExists = true;
+      this.errorText = "The user with that username allredy exist";
+      return;
+    }
+    
+    
+    
+
+    
   }
 
   toggleTieldTextType(){

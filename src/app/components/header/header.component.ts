@@ -1,3 +1,4 @@
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,16 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private router : Router) { }
+  login:Boolean;
+  constructor(private router : Router, private authService:AuthenticationService) { }
 
   ngOnInit(): void {
+    console.log(this.authService.getCurrentUser().username)
   }
 
-  login:Boolean;
+  getCurrentUserName(){
+    this.authService.getCurrentUser().username;
+    console.log(this.authService.getCurrentUser().username)
+  }
 
   toogleLogin(){
     this.router.navigate(['/auth']);
   }
 
+  isLogedin():boolean{
+    return this.authService.isLogedin();
+
+  }
 }
+
+

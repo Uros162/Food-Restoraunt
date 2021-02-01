@@ -5,6 +5,7 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from '@angular/material/icon'
 import {MatListModule} from '@angular/material/list'
 import {MatTabsModule} from '@angular/material/tabs'
+import {MatMenuModule} from '@angular/material/menu'
 
 @NgModule({
 
@@ -14,7 +15,8 @@ import {MatTabsModule} from '@angular/material/tabs'
         MatToolbarModule,
         MatIconModule,
         MatListModule,
-        MatTabsModule
+        MatTabsModule,
+        MatMenuModule
     ],
     exports:[
         MatButtonModule,
@@ -22,7 +24,8 @@ import {MatTabsModule} from '@angular/material/tabs'
         MatToolbarModule,
         MatIconModule,
         MatListModule,
-        MatTabsModule
+        MatTabsModule,
+        MatMenuModule
     ]
 })
 

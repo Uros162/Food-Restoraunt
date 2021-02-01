@@ -11,6 +11,8 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { HeaderComponent } from './components/header/header.component';
     CustomerComponent,
     AuthenticationComponent,
     HeaderComponent,
+    WelcomeComponent,
    
   ],
   imports: [
@@ -32,7 +35,7 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     ReactiveFormsModule 
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
