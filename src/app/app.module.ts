@@ -1,3 +1,5 @@
+import { RestaurantService } from './services/restaurant/restaurant.service';
+
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +15,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { HeaderComponent } from './components/header/header.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
 
 
 @NgModule({
@@ -24,6 +27,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     AuthenticationComponent,
     HeaderComponent,
     WelcomeComponent,
+    RestaurantComponent
    
   ],
   imports: [
@@ -35,7 +39,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     FormsModule,
     ReactiveFormsModule 
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService,RestaurantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

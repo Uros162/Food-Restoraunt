@@ -1,0 +1,60 @@
+<div class="container-fluid border border-primary">
+  <div class=" row">
+    <div class="col-lg-3   border border-primary ">
+      <ul class="list-group mx-auto">
+        <li *ngFor="let category of this.listOfCAtegories" class="list-group-item list-group-item-action" (click)="filter(category)">{{category}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-6 col-sm-12 border border-primary ">
+      <h2 class="text-center">{{getNameOfResturant(this.message)}}</h2>
+
+      <div class="form-group row">
+
+        <div class="col-sm-10">
+          <input (keyup)= "search($event)" class="form-control" type="text" placeholder="Pretražite Jelovnik" aria-label="Search">
+        </div>
+      </div>
+      <div *ngFor="let meal of this.theVisibleMeals" fxLayout="row inline" class="card ">
+        <img class="card-img-top" src="../../../assets/images/pomfrit.jpg" alt="Card image cap">
+        <div class="card-body">
+
+          <h5 class="card-title">{{meal.name}}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <button type="button text-right" class="btn btn-warning float-right" disabled="isLogedin()"
+            (click)=" addItemToCart(meal.mealId)">dodaj</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 border border-primary hidden-xs">
+      <div class="container">
+        <h3 class="text-center">Vasa korpa</h3>
+        <div *ngFor="let cartItem of this.currentItemsIncart" fxLayoutAlign="space-between" [ngClass]= "isActive ? 'active border-bottom py-3 ' : 'border-bottom py-3'">
+          <div fxLayout="row inline">
+            <div>
+
+              <h3 class="text-center">{{cartItem.name}} </h3>
+              <div fxLayout="row inline ">
+                <button mat-mini-fab color="warn" class="mx-2"
+                  (click)="increassQuantityAndPrice(this.currentItemsIncart.indexOf(cartItem))">+</button>
+                <p class="font-weight-bold">{{cartItem.quantity}}</p>
+                <button mat-mini-fab color="warn" class="mx-2"
+                  (click)="decreassQuantityAndPrice(this.currentItemsIncart.indexOf(cartItem))">-</button>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="space-between">
+            <mat-icon (click)="removeItemFromCart(this.currentItemsIncart.indexOf(cartItem))">close</mat-icon>
+            <p class="font-weight-bold text-right">{{cartItem.totalPrice}}</p>
+          </div>
+        </div>
+        <div fxAlignLayout="space-around">
+          <h2 fxFlex class="m-3 text-center">CENA</h2>
+        <h2 fxFlex class=" m-3 text-center font-weight-bold float-right" >{{this.total()}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

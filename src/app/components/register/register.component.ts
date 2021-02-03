@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
     if(!this.authService.getUser(username)){
       this.errorExists = false;
       var user = this.authService.registerUser(username,password);
-      this.router.navigate(['/']);
+      this.router.navigate(['/welcome']);
       console.log(AuthenticationService.dumyList);
     }else{
       this.errorExists = true;

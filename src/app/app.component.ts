@@ -15,8 +15,10 @@ export class AppComponent {
   constructor(private router : Router, private authService:AuthenticationService) { }
 
   ngOnInit(): void {
-   
+   this.router.navigate(['/welcome']);
   }
+
+  
 
   getCurrentUserName(){
     this.authService.getCurrentUser().username;
@@ -25,7 +27,7 @@ export class AppComponent {
 
   toogleLogin(){
     this.router.navigate(['/auth']);
-    this.loging =true;
+    
   }
 
   isLogedin():boolean{

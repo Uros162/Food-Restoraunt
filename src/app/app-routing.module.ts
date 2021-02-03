@@ -6,6 +6,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { Restaurant } from './models/restaurant';
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
 
 const routes: Routes = [
   { path:'login',component: LoginComponent},
@@ -13,6 +15,7 @@ const routes: Routes = [
   { path:'customer',component: CustomerComponent},
   { path:'auth',component: AuthenticationComponent},
   { path:'welcome',component: WelcomeComponent},
+  { path:'restaurant',component: RestaurantComponent},
 
 ];
 

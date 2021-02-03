@@ -11,3 +11,11 @@ img{
     width:40%;
     height:100%;
 }
+
+#searchBox{
+    width: 97%;  
+    table-layout: fixed;
+    border-collapse: collapse;
+    z-index: 10;
+    position: absolute;
+}
