@@ -1,3 +1,4 @@
+import { CartItem } from './../../models/cart-item';
 
 import { Restaurant } from '../../models/restaurant';
 import { Injectable } from '@angular/core';
@@ -12,7 +13,12 @@ export class RestaurantService {
 
   constructor() { }
   private messageSource = new BehaviorSubject(0);
+  private messageSourceRestorant = new BehaviorSubject([]);
+  
+  
   currentMessage = this.messageSource.asObservable();
+  currentItemsInOreder = this.messageSourceRestorant.asObservable();
+ 
  
 
   
@@ -28,7 +34,15 @@ export class RestaurantService {
 
   changeMessage(message: number) {
     this.messageSource.next(message)
+
+    
   }
+
+  showOrderDetails(currentItemsIncart:Array<CartItem>){
+    this.messageSourceRestorant.next(currentItemsIncart);
+  }
+
+  
 
   static dumyList: Array<Restaurant> = getRestaurants();
 

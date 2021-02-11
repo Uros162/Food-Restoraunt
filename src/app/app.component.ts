@@ -34,6 +34,9 @@ export class AppComponent {
     return this.authService.isLogedin();
 
   }
+  navigateToCustomerPanel(){
+    this.router.navigate(['/customer-page']);
+  }
 
   
 }

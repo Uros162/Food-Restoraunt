@@ -24,7 +24,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.forma = this.fb.group({
       username:['',[Validators.required,Validators.email,Validators.minLength(6)]],
+      address:['',[Validators.required]],
       password:['',[Validators.required,Validators.minLength(6),Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')]],
+
       confrimPassword:['',Validators.required] 
     },
     {
@@ -39,10 +41,11 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     var username = this.forma.get('username').value;
     var password = this.forma.get('password').value;
+    var address = this.forma.get('address').value;
 
     if(!this.authService.getUser(username)){
       this.errorExists = false;
-      var user = this.authService.registerUser(username,password);
+      var user = this.authService.registerUser(username,password,address);
       this.router.navigate(['/welcome']);
       console.log(AuthenticationService.dumyList);
     }else{

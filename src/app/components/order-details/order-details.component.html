@@ -1,0 +1,26 @@
+<div class="container-fluid">
+<h2 mat-dialog-titl> Detalji Porudzbinae</h2>
+
+<div mat-dialog-content >
+   
+      <div fxLayout="row" fxLayoutAlign ="space-between" *ngFor = "let cartItem of this.currentItemsIncart">
+       <div class="p-2">{{cartItem.name}}</div>
+       <div class="p-2">x {{cartItem.quantity}}</div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign ="space-between" class="font-weight-bold"><div class="p-2"> ukupno </div>
+      
+      <div class="p-2 float-right font-weight-bold">{{this.total()}}</div>
+   </div>
+     
+   
+   </div>
+
+<mat-dialog-actions>
+   <button mat-button mat-dialog-close>Cancel</button>
+   <button mat-button [mat-dialog-close]="true" (click) = "this.order()" > Naruci </button>
+</mat-dialog-actions>
+</div>
+
+
+
+

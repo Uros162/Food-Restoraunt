@@ -1,0 +1,38 @@
+<div fxLayoutAlign = "center center">
+  
+
+<mat-table [dataSource] = "myOrders" matSort>
+    <ng-container matColumnDef = "status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+        <mat-cell *matCellDef = "let element">{{element.status}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "narudzbina">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>stavke narudzbine</mat-header-cell>
+        <mat-cell *matCellDef = "let element"><div *ngFor="let item of element.meals"><p>{{item.name + "\n"}}</p> </div>  </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "cena">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+        <mat-cell *matCellDef = "let element">{{element.price}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "datum">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Datum</mat-header-cell>
+        <mat-cell *matCellDef = "let element">{{element.timestamp}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "beleske">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Beleska</mat-header-cell>
+        <mat-cell *matCellDef = "let element">{{element.notice}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef = "ocena">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ocena</mat-header-cell>
+        <mat-cell *matCellDef = "let element">{{element.mark}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
+    <mat-row *matRowDef = "let rows;columns: displayedColumns"></mat-row>
+</mat-table>
+</div>

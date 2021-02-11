@@ -1,8 +1,14 @@
+import { OrderService } from './../../services/order/order.service';
+import { Order } from './../../models/order';
+import { CartItem } from './../../models/cart-item';
+import { OrderDetailsComponent } from './../order-details/order-details.component';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { RestaurantService } from '../../services/restaurant/restaurant.service';
 import { Component, OnInit } from '@angular/core';
 import { Meal } from 'src/app/models/meal';
-import { CartItem } from 'src/app/models/cart-item';
+
+import { MatDialog } from '@angular/material/dialog';
+import { summaryFileName } from '@angular/compiler/src/aot/util';
 
 
 @Component({
@@ -18,7 +24,9 @@ export class RestaurantComponent implements OnInit {
   serialNumber:number = 0;
   isAktive:boolean;
   
-  constructor(private restaurantsService:RestaurantService ,private authService:AuthenticationService) { }
+ 
+  
+  constructor(private orderService:OrderService, private restaurantsService:RestaurantService ,private authService:AuthenticationService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     console.log(this.message)
@@ -26,6 +34,9 @@ export class RestaurantComponent implements OnInit {
     this.listOfCAtegories = this.getListOfCategories(this.message);
     this.theVisibleMeals = this.getMeals(this.message);
     
+  }
+  newMessage(message:number) {
+    this.restaurantsService.changeMessage(message);
   }
 
   getNameOfResturant(id:number){ 
@@ -46,9 +57,13 @@ export class RestaurantComponent implements OnInit {
 
     return meal;
   }
+  sendRestaurantId(message:number) {
+    this.restaurantsService.changeMessage(message);
+  }
+  
 
   addItemToCart(id:number){
-
+    this.orderService.setOrdered(false);
      var meal = this.getMealById(id);
     
 
@@ -85,12 +100,18 @@ export class RestaurantComponent implements OnInit {
     }
    
    }
-   total(){
+   total(): number | string{
      let sum = 0;
 
      this.currentItemsIncart.forEach(element => {
        sum+=element.totalPrice;
      });
+
+     if(!this.orderService.isOrdered()){
+       return sum;
+     }else{
+       return "Vasa Korpa je prazna"
+     }
 
      return sum;
    }
@@ -108,8 +129,46 @@ export class RestaurantComponent implements OnInit {
     
     this.isAktive = true;
     this.theVisibleMeals = this.getMeals(this.message).filter(meal => meal.category.toLocaleLowerCase() == category);
-    console.log(this.theVisibleMeals);
+    console.log(this.authService.isLogedin());
    
   }
+
+  public returnItemsFromCart(){
+    return this.currentItemsIncart;
+  }
+
+  openDialog() {
+    this.showOrderDetails();
+    this.newMessage(this.message);
+
+    const dialogRef = this.dialog.open(OrderDetailsComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  showOrderDetails( ) {
+    this.restaurantsService.showOrderDetails(this.currentItemsIncart);
+  }
+
+  returnCurrentItemsInCart(){
+
+    if(this.orderService.isOrdered()){
+    this.currentItemsIncart.splice(0,this.currentItemsIncart.length);
+  }
+    return this.currentItemsIncart;
+  }
+  isOrdered(){
+    return this.orderService.isOrdered()
+  }
+
+  disableButton():boolean{
+    return this.currentItemsIncart.length > 0;
+  }
+
+ 
+
+  
     
 }

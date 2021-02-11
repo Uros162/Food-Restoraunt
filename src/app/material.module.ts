@@ -6,7 +6,10 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatListModule} from '@angular/material/list'
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatMenuModule} from '@angular/material/menu'
-import {MatChipsModule} from '@angular/material/chips';
+import {MatChipsModule} from '@angular/material/chips'
+import {MatDialogModule} from '@angular/material/dialog'
+import {MatTableModule} from '@angular/material/table'
+import {MatSortModule} from '@angular/material/sort'
 
 @NgModule({
 
@@ -18,7 +21,10 @@ import {MatChipsModule} from '@angular/material/chips';
         MatListModule,
         MatTabsModule,
         MatMenuModule,
-        MatChipsModule
+        MatChipsModule,
+        MatDialogModule,
+        MatTableModule,
+        MatSortModule
     ],
     exports:[
         MatButtonModule,
@@ -28,7 +34,11 @@ import {MatChipsModule} from '@angular/material/chips';
         MatListModule,
         MatTabsModule,
         MatMenuModule,
-        MatChipsModule
+        MatChipsModule,
+        MatDialogModule,
+        MatTableModule,
+        MatSortModule
+        
     ]
 })
 

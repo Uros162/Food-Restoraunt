@@ -8,8 +8,8 @@ import { Customer } from 'src/app/models/customer';
 })
 export class AuthenticationService {
 
-  currentUser: Customer = AuthenticationService.dumyList[0];
-  logedIn: boolean;
+  currentUser: Customer ;
+  logedIn: boolean=false;
   constructor() { }
 
 
@@ -19,12 +19,14 @@ export class AuthenticationService {
       id: 1,
       username: 'abc@gmail.com',
       password: 'singi555555',
+      addresses:['jovanke Radakovic']
 
     },
     {
       id: 2,
       username: 'abcq@gmail.com',
       password: 'dingi555555',
+      addresses:['jovanke Radakovic']
 
     }
   ]
@@ -79,7 +81,7 @@ export class AuthenticationService {
       (userToFind.username == username && userToFind.password == password)) != undefined;
   }
 
-  registerUser(username: string, password: string): Customer {
+  registerUser(username: string, password: string,adress:string): Customer {
     var maxid: number = 0;
     AuthenticationService.dumyList.forEach(user => {
       if (maxid < user.id) {
@@ -89,7 +91,9 @@ export class AuthenticationService {
 
     var id = ++maxid;
 
-    var user: Customer = { id, username, password };
+    var addresses:Array<string> =[];
+    addresses.push(adress);
+    var user: Customer = { id, username, password ,addresses};
     AuthenticationService.dumyList.push(user);
 
 
