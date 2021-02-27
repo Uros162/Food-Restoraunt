@@ -1,34 +1,45 @@
-<div class="container-fluid border border-primary">
+<div class="container-fluid ">
+  <div class="col-lg-3 col-md-2  my-5 float-left filter">
+    <ul class="list-group mx-auto">
+      <li class="list-group-item list-group-item-action" (click)="getAllMeals()">sve kategorije</li>
+      <li *ngFor="let category of this.listOfCAtegories" class="list-group-item list-group-item-action" (click)="filter(category)">{{category}}
+      </li>
+    </ul>
+  </div>
   <div class=" row">
-    <div class="col-lg-3   border border-primary ">
-      <ul class="list-group mx-auto">
-        <li *ngFor="let category of this.listOfCAtegories" class="list-group-item list-group-item-action" (click)="filter(category)">{{category}}
-        </li>
-      </ul>
-    </div>
-    <div class="col-lg-6 col-sm-12 border border-primary ">
+    
+    <div class="col-lg-8 col-sm-12  ">
       <h2 class="text-center">{{getNameOfResturant(this.message)}}</h2>
 
       <div class="form-group row">
 
-        <div class="col-sm-10">
-          <input (keyup)= "search($event)" class="form-control" type="text" placeholder="Pretražite Jelovnik" aria-label="Search">
+        <div class="col-sm-10 mx-auto">
+          <div class="input-group smm">
+            <div class="input-group-prepend">
+              
+              <span class="input-group-text" id="basic-addon1"><mat-icon>search</mat-icon></span>
+            </div>
+            <input (keyup)= "search($event)" class="form-control" type="text" placeholder="Pretražite Jelovnik" aria-label="Search">
+          </div>
+         
         </div>
       </div>
-      <div *ngFor="let meal of this.theVisibleMeals" fxLayout="row inline" class="card ">
+      <div class="d-flex align-items-start flex-column filter">
+      <div *ngFor="let meal of this.theVisibleMeals" fxLayout="row inline" class="card mx-auto m-2 rounded">
         <img class="card-img-top" src="../../../assets/images/pomfrit.jpg" alt="Card image cap">
         <div class="card-body">
 
-          <h5 class="card-title">{{meal.name}}</h5>
+          <h1 class="card-title">{{meal.name}}</h1>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
-          <button type="button text-right" class="btn btn-warning float-right" [disabled]="!this.authService.isLogedin()"
+          <button type="button text-right" class="btn btn-lg btn-warning float-right" [disabled]="!this.authService.isLogedin()"
             (click)=" addItemToCart(meal.mealId)">dodaj</button>
         </div>
       </div>
     </div>
-    <div class="col-lg-3 border border-primary hidden-xs">
-      <div class="container">
+    </div>
+    <div class="  col-lg-3 ">
+      <div class=" cart col-11  " style="background: #F0F0C999;">
         <h3 class="text-center">Vasa korpa</h3>
         <div  *ngFor="let cartItem of this.returnCurrentItemsInCart()" fxLayoutAlign="space-between" [ngClass]= "isActive ? 'active border-bottom py-3 ' : 'border-bottom py-3'">
           <div fxLayout="row inline">

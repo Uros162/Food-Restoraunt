@@ -9,6 +9,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { Restaurant } from './models/restaurant';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { CustomerPanelComponent } from './components/customer-panel/customer-panel.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 const routes: Routes = [
   { path:'login',component: LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path:'welcome',component: WelcomeComponent},
   { path:'restaurant',component: RestaurantComponent},
   { path:'customer-page',component: CustomerPanelComponent},
+  { path:'rating',component: RatingComponent}
 
 ];
 

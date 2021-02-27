@@ -1,9 +1,15 @@
 <section>
-  <div class="container">
+   <div class="col-lg-3 col-md-2  my-5 float-left filter" fxHide.xs>
+      <ul class="list-group mx-auto">
+        <li class="list-group-item list-group-item-action" (click) = "LoadRestaurants()">sve kategorije</li>
+        <li *ngFor = "let category of categoriesOfFood" class="list-group-item list-group-item-action" (click) ="filterRestaurants(category)">{{category}}</li>
+      </ul>
+    </div>
+  <div class="container s-input">
     <div class="form-group row">
-      <h3 class="col-sm-2">Restorani</h3>
-      <div class="col-sm-10">
-        <input (keyup)="search($event)" class="form-control" type="text" placeholder="Pretražite Restorane" aria-label="Search">
+     
+      <div class="container  col-lg-12 ">
+        <input (keyup)="search($event)" class="form-control my-2" type="text" placeholder="Pretražite Restorane" aria-label="Search">
         <!-- <div class="card" *ngIf="visibleRestaurants!=undefined" id="searchBox">
           <div *ngFor="let restaurant of visibleRestaurants">
             <a href="restaurant/{{restaurant.restaurantId}}" class="link">
@@ -18,22 +24,31 @@
         </div> -->
       </div>
     </div>
-
+   
 
     
   </div>
-  <div *ngFor="let restaurant of visibleRestaurants" fxLayoutGap="3" class=" container  col-sm-12 col-lg-5" >
+  <div class="container col-lg-6 holder m-0">
+  <div *ngFor="let restaurant of visibleRestaurants" fxLayoutGap="3" class=" container mx-auto  col-lg-12 rounded" >
     <div class="card " >
-        <div fxLayout="row inline">
+        <div  fxLayout="row ">
+          <div fxFlex="35">
             <img [src]="restaurant.restaurantLogo" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{restaurant.name}}</h5>
+          </div>
+           
+        <div fxFlex class="card-body">
+          <h1 class="card-title">{{restaurant.name}}</h1>
           <p class="card-text">{{restaurant.description}}</p>
-         
-          <button type="button" class="btn btn-danger" (click) = "redirectToRstoranById(restaurant.restaurantId)">naruci</button>
+          <div class="float-left" fxLayoutAlign="center" style="width: 60px; height: 40px;"><b fxFlex>{{currentMark(restaurant.restaurantId)}}</b><mat-icon  fxFlex class="mark">star</mat-icon></div>
+          
+          <button type="button" class="btn btn-lg btn-danger float-right" (click) = "redirectToRstoranById(restaurant.restaurantId)">naruci</button>
         </div>
         </div>
       </div>  
 </div>
+</div>
    
 </section>
+<script>
+
+</script>

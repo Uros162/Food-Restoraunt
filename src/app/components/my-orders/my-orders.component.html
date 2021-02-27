@@ -1,4 +1,4 @@
-<div fxLayoutAlign = "center center">
+
   
 
 <mat-table [dataSource] = "myOrders" matSort>
@@ -29,10 +29,9 @@
 
     <ng-container matColumnDef = "ocena">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Ocena</mat-header-cell>
-        <mat-cell *matCellDef = "let element">{{element.mark}}</mat-cell>
+        <mat-cell *matCellDef = "let element"><button *ngIf="!isOrdered(element.mark)" type="button" class="btn btn-warning" (click) = "openDialog(element.restaurantId,element.orderId)">Warning</button> {{element.mark}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef = "displayedColumns"></mat-header-row>
     <mat-row *matRowDef = "let rows;columns: displayedColumns"></mat-row>
 </mat-table>
-</div>

@@ -23,14 +23,15 @@ export function getRestaurants(){
               price:50
             
             }
-          ]
+          ],
+          marks:[1,2,3,4]
     
         },
         {
           restaurantId:2,
           name:"Lesko Zar",
-          restaurantLogo : "../../assets/images/McDonalds_Usce-1-1s.jpg",
-          description:"mek ooooo",
+          restaurantLogo : "../../assets/images/rostilj.png",
+          description:"najbolji rostilj u gradu i sire",
           mark: 5,
           address:"husiniskih rudara",
           meals:[
@@ -49,8 +50,30 @@ export function getRestaurants(){
               mealPicture:"../../",
               price:50
             
+            }, {mealId:23,
+              name:"obicna pleskavica",
+              description:"lepo",
+              category:"rostilj",
+              mealPicture:"../../",
+              price:50
+            
+            }, {mealId:24,
+              name:"cevapii",
+              description:"lepo",
+              category:"rostilj",
+              mealPicture:"../../",
+              price:50
+            
+            }, {mealId:25,
+              name:"pileci batak",
+              description:"lepo",
+              category:"rostilj",
+              mealPicture:"../../",
+              price:50
+            
             }
-          ]
+          ],
+          marks:[1,2,3,4,3,4,3,2,3]
     
         },
         {
@@ -77,7 +100,8 @@ export function getRestaurants(){
               price:50
             
             }
-          ]
+          ],
+          marks:[1,2,3,4]
     
         },{
           restaurantId:4,
@@ -119,7 +143,8 @@ export function getRestaurants(){
               price:50
             
             }
-          ]
+          ],
+          marks:[1,2,3,4]
     
         },
         {
@@ -162,7 +187,8 @@ export function getRestaurants(){
               price:50
             
             }
-          ]
+          ],
+          marks:[1,2,3,4]
     
         }
         

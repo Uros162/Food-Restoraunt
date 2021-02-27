@@ -13,14 +13,29 @@ export class WelcomeComponent implements OnInit {
   restaurants : Array<Restaurant>;
   visibleRestaurants : Array<Restaurant>;
   message:number; 
+  categoriesOfFood:Set<any[]>;
+  
   constructor(private restaurantsService:RestaurantService,private router:Router) { }
 
   ngOnInit(): void {
     this.LoadRestaurants();
+    this.categoriesOfFood =this.getCategories();
+  
   }
 
+  getCategories():Set<any[]>{
+    var categories = this.restaurantsService.getRestaurants().map(rest => rest.meals.map(meal => meal.category)).reduce((acc, val) => acc.concat(val), []);
+    
+    
+    return new Set(categories) ;
+    }
+    
+    
+    
+  
 
-  private LoadRestaurants() {
+
+   LoadRestaurants() {
     this.visibleRestaurants  = this.restaurantsService.getRestaurants();
     this.restaurants = this.restaurantsService.getRestaurants();
         
@@ -35,6 +50,10 @@ export class WelcomeComponent implements OnInit {
       this.visibleRestaurants = this.restaurants.filter(restourant => restourant.name.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase().slice(0.4)));
     }
 
+    public filterRestaurants(category:string){
+      this.visibleRestaurants = this.restaurants.filter(rest => rest.meals.filter(meal => meal.category == category).length > 0);
+    }
+
     newMessage(message:number) {
       this.restaurantsService.changeMessage(message);
     }
@@ -43,4 +62,10 @@ export class WelcomeComponent implements OnInit {
       this.newMessage(id);
       this.router.navigate(['/restaurant']);
     }
+
+    currentMark(id:number){
+      return this.restaurantsService.calculateCurentMark(id).toFixed(1);
+    }
+
+    
 }

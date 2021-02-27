@@ -9,13 +9,13 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-toolbar color="#F01616"><div fxHide.gt-xs (click) = "sidenav.toggle()"><mat-icon>menu</mat-icon></div>
+      <mat-toolbar class="navbar"><div fxHide.gt-xs (click) = "sidenav.toggle()"><mat-icon>menu</mat-icon></div>
        <div fxFlex fxLayoutAlign="end"  fxHide.xs>
          <button *ngIf="!isLogedin()" type="button" class="btn   btn-lg auth" (click) = "toogleLogin()">prijavi se/registruj se</button>
          <button *ngIf="isLogedin()" mat-button  class="btn   btn-lg auth"[matMenuTriggerFor]="menu">{{this.authService.getCurrentUser().username}}</button>
          <mat-menu #menu="matMenu">
            <button mat-menu-item (click) = "navigateToCustomerPanel()">moj profil</button>
-           <button mat-menu-item>Item 2</button>
+           <button mat-menu-item (click) = "logout()"> odjavi se</button>
          </mat-menu>
          
        </div>

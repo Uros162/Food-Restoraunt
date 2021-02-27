@@ -1,0 +1,26 @@
+<!-- <ng-template #t let-fill="fill">
+    <span class="star" [class.full]="fill === 100">
+      <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+    </span>
+  </ng-template>
+  <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [(readonly)]="read" max="5"></ngb-rating>
+  <div *ngIf=!read>
+    <pre>Ocena: <b></b></pre>
+    <button *ngIf='' (click)="" class="btn btn-warning">Pošalji ocenu</button>
+  </div> -->
+
+<mat-dialog-content>
+ <ng-template #t let-fill="fill">
+  <span class="star" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+  </span>
+</ng-template>
+
+<ngb-rating [(rate)]="currentRate" [starTemplate]="t"  [max]="5"></ngb-rating>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>otkazi</button>
+  <button mat-button [mat-dialog-close]="true" (click) = "sendMark()">potvrdi</button>
+</mat-dialog-actions>
+
+

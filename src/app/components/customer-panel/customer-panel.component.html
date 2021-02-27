@@ -1,12 +1,13 @@
-<section class="container mx-auto col-lg-5 col-sm-12 ">
-    <h3 class="text-center font-weight-bold"> Prijavi se na aplikaciju</h3>
+<section fxLayoutAlign = "center " class="container-fluid mx-auto col-lg-9 col-sm-12 "id="panel">
+   
     
-      <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
-          <mat-tab label="profil"></mat-tab>
+      <mat-tab-group mat-align-tabs="center" animationDuration="200ms" >
+          <mat-tab label="profil"><app-customer-data></app-customer-data></mat-tab>
           <mat-tab label="narudbine"><app-my-orders></app-my-orders></mat-tab>
-          <mat-tab label="adrese"></mat-tab>
+          <mat-tab label="adrese"><app-adresses></app-adresses></mat-tab>
           <mat-tab label="utisci"></mat-tab>
           
           
         </mat-tab-group>
   </section>
+ 

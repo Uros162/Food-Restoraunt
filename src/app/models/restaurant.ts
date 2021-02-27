@@ -9,4 +9,5 @@ export class Restaurant {
     mark: number;
     address: string;
     meals: Array<Meal>;
+    marks:number[];
 }

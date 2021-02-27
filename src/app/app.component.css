@@ -1,13 +1,20 @@
 
 mat-sidenav-container,mat-sidenav,mat-sidenav-content{
     height: 100%;
+    background:url('../assets/images/header.jpg');
+    background-size: cover;
 }
 mat-sidenav{
     width:100vw;
 }
 
 mat-toolbar{
-    background:#F01616 ;
+    background:#ffffff80;
+    height: 20vh;
+    position: sticky;
+    top:0;
+    z-index: 20;
+
 } 
 mat-nav-list > a{
     display: flex;

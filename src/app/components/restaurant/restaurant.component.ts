@@ -1,7 +1,7 @@
 import { OrderService } from './../../services/order/order.service';
 import { Order } from './../../models/order';
 import { CartItem } from './../../models/cart-item';
-import { OrderDetailsComponent } from './../order-details/order-details.component';
+import { OrderDetailsComponent } from "./../order-details/OrderDetailsComponent";
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { RestaurantService } from '../../services/restaurant/restaurant.service';
 import { Component, OnInit } from '@angular/core';
@@ -35,6 +35,10 @@ export class RestaurantComponent implements OnInit {
     this.theVisibleMeals = this.getMeals(this.message);
     
   }
+
+  getAllMeals(){
+    this.theVisibleMeals = this.getMeals(this.message);
+  }
   newMessage(message:number) {
     this.restaurantsService.changeMessage(message);
   }
@@ -42,8 +46,9 @@ export class RestaurantComponent implements OnInit {
   getNameOfResturant(id:number){ 
     return this.restaurantsService.getRestaurantByID(id).name;
   }
+ 
 
-  getListOfCategories(id:number){
+   getListOfCategories(id:number){
     var listOfCAtegories = new Set(this.restaurantsService.getRestaurantByID(id).meals.map(meal => meal.category));
     return listOfCAtegories;    
   }

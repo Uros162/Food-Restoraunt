@@ -1,0 +1,25 @@
+<div class="container-fluid ">
+    <h1 class="text-center">Vase adrese</h1>
+    <div class="card">
+        <div class="card-body">
+         <h5 class="card-title">Dodaj novu adresu</h5>
+           <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" formControlName="newAdress"class="form-control" id="newAdress"  placeholder="new adress">
+              </div>
+            <button type="submit" [disabled]="forma.invalid" class="btn btn-primary float-center">Dodajte novu adresu</button>
+           </form>
+          
+        </div>
+      </div>
+
+    
+        
+    <div *ngFor = " let address of addresses"class="card">
+        <div class="card-body">
+         
+          <p class="card-text">{{address}}</p>
+          <a  class="btn btn-primary float-right" (click)="this.removeAdress(this.addresses.indexOf(address))">obrisi</a>
+        </div>
+      </div>
+</div>

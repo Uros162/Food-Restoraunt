@@ -1,3 +1,4 @@
+import { OrderDetailsComponent } from "./components/order-details/OrderDetailsComponent";
 import { OrderService } from './services/order/order.service';
 import { RestaurantService } from './services/restaurant/restaurant.service';
 
@@ -17,9 +18,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
-import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { CustomerPanelComponent } from './components/customer-panel/customer-panel.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { AdressesComponent } from './components/adresses/adresses.component';
+import { CustomerDataComponent } from './components/customer-data/customer-data.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingComponent } from './components/rating/rating.component';
+
 
 
 @NgModule({
@@ -32,9 +37,12 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
     HeaderComponent,
     WelcomeComponent,
     RestaurantComponent,
-    OrderDetailsComponent,
     CustomerPanelComponent,
-    MyOrdersComponent
+    OrderDetailsComponent,
+    MyOrdersComponent,
+    AdressesComponent,
+    CustomerDataComponent,
+    RatingComponent
    
   ],
   imports: [
@@ -44,7 +52,8 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    NgbModule 
   ],
   providers: [AuthenticationService,RestaurantService,OrderService],
   bootstrap: [AppComponent]

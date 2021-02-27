@@ -6,3 +6,18 @@ img{
 .card{
     height:20vh;
 }
+li{
+    font-weight: bold;
+}
+.filter{
+    position: sticky;
+    top:21vh;
+}
+
+
+ .cart{
+    position: sticky;
+    top:21vh;
+    
+} 
+

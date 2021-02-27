@@ -1,21 +1,50 @@
-section >div{
-    border: 2px solid blue;
-}
 
 .card{
     width:100%;
+   
+   margin:10px;
 }
+.holder{
+    height:80vh;
+    overflow: scroll;
+    position: sticky;
+    top:24vh;
+}
+.holder::-webkit-scrollbar{
+    display: none;
+}
+
 
 img{
     background-size: cover;
-    width:40%;
-    height:100%;
+    width:100%;
+    height: 100%;
 }
 
-#searchBox{
-    width: 97%;  
-    table-layout: fixed;
-    border-collapse: collapse;
-    z-index: 10;
-    position: absolute;
+
+
+mat-icon{
+    color: #FBCD37;
+   font-size: 30px;
+   background: transparent;
+   height: 100%;
+}
+b{
+    font-size: 20px;
+    padding-top: 12px;
+}
+
+
+input{
+    border: transparent;
+
+    border-radius: 30px;
+}
+
+.filter{
+    position: sticky;
+    top:20vh;
+}
+li{
+    font-weight: bold;
 }

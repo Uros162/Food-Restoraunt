@@ -42,6 +42,16 @@ export class RestaurantService {
     this.messageSourceRestorant.next(currentItemsIncart);
   }
 
+  calculateCurentMark(id:number){
+  
+    var currentRestoran = this.getRestaurantByID(id);
+    var numberOfRestoraunts = currentRestoran.marks.length;
+    var sum =currentRestoran.marks.reduce((sum,currValue)=>{
+      return sum+currValue;
+    })
+    return sum/numberOfRestoraunts;
+  }
+
   
 
   static dumyList: Array<Restaurant> = getRestaurants();

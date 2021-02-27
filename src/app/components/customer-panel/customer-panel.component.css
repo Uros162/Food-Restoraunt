@@ -1,0 +1,18 @@
+
+mat-tab-group{
+    width: 100vw;
+    background: #ffffff90;
+    margin:30px;
+    color: black;
+}
+mat-tab{
+    background: yellow;
+    
+    font-weight: bold; 
+}
+app-my-orders{
+    background: chartreuse;
+} 
+mat-tab{
+    background: #ffffff60;
+}

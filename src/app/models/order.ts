@@ -10,8 +10,8 @@ export class Order {
     address: string;
     status: Status;
     meals: Array<CartItem>;
-    timestamp: Date;
+    timestamp: string;
     price: number;
     notice?:string;
-    mark: number;
+    mark?: number;
 }

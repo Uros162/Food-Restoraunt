@@ -1,6 +1,4 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
-
-
 import { AuthenticationService } from './../../services/authentication/authentication.service';
 import { OrderService } from './../../services/order/order.service';
 import { CartItem } from './../../models/cart-item';
@@ -33,6 +31,7 @@ export class OrderDetailsComponent implements OnInit {
       notice:['']
     })
   }
+FormGroup
 
   total() {
     let sum = 0;
@@ -65,14 +64,13 @@ export class OrderDetailsComponent implements OnInit {
       address: "vukija jovica",
       status: Status.FINISHED,
       meals: [...this.currentItemsIncart],
-      timestamp: this.formatDate(),
+      timestamp:  this.formatDate(),
       price: this.total(),
+     
       notice:this.forma.get('notice').value
     };
-    console.log("---------------");
-
+    console.log("------------");
     console.log(this.currentOrder);
-
 
     this.OrderService.addOrder(this.currentOrder);
     this.OrderService.setOrdered(true);
@@ -80,6 +78,4 @@ export class OrderDetailsComponent implements OnInit {
 
 
 
-
 }
-

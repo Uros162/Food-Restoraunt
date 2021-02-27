@@ -4,6 +4,7 @@ import { AuthenticationService } from 'src/app/services/authentication/authentic
 import { Order } from './../../models/order';
 import { Injectable } from '@angular/core';
 import { OrderData } from 'src/app/data/OrderData';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ import { OrderData } from 'src/app/data/OrderData';
 export class OrderService {
   isOrderedValue:boolean;
   constructor(private authService:AuthenticationService) { }
+  private messageSource = new BehaviorSubject(0);
+  currentMessage = this.messageSource.asObservable();
 
   static orders:Array<Order> = OrderData.orderData;
 
@@ -29,6 +32,16 @@ export class OrderService {
 
   getMyOrders(){
     return OrderService.orders.filter(order=>order.customerId == this.authService.currentUser.id);
+  }
+
+  findMyOrderById(id:number){
+    return this.getMyOrders().find(order=>order.orderId == id);
+  }
+
+  changeMessage(messageRating: number) {
+    this.messageSource.next(messageRating)
+
+    
   }
 
 

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 import { Injectable } from '@angular/core';
 
@@ -10,7 +11,7 @@ export class AuthenticationService {
 
   currentUser: Customer ;
   logedIn: boolean=false;
-  constructor() { }
+  constructor(private router:Router) { }
 
 
 
@@ -74,6 +75,12 @@ export class AuthenticationService {
 
   isLogedin(): boolean {
     return this.logedIn;
+  }
+
+  logout(){
+    this.currentUser = null;
+    this.logedIn = false;
+    this.router.navigate(['/welcome']);
   }
 
   isPasswordCorect(username: string, password: string): boolean {
